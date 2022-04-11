@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.c196.R;
 
@@ -33,5 +34,9 @@ public class DetailedAssessmentView extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    // adds details about the selected assessment
+    public void addAssessmentDetails(View view) {
     }
 }
