@@ -3,30 +3,24 @@ package com.example.c196.Entity;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "terms")
+@Entity(tableName = "terms_table")
 public class Terms {
     @PrimaryKey(autoGenerate = true)
     private int termID;
 
-    private String termName;
-    private Double termNumber;
+    private String termTitle;
+    private String termStartDate;
+    private String termEndDate;
 
     // Constructors for terms
-    public Terms(int termID, String termName, Double termNumber) {
+    public Terms(int termID, String termTitle, String termStartDate, String termEndDate) {
         this.termID = termID;
-        this.termName = termName;
-        this.termNumber = termNumber;
+        this.termTitle = termTitle;
+        this.termStartDate = termStartDate;
+        this.termEndDate = termEndDate;
     }
 
-    @Override
-    public String toString() {
-        return "Terms{" +
-                "termID=" + termID +
-                ", termName='" + termName + '\'' +
-                ", termNumber=" + termNumber +
-                '}';
-    }
-
+    // Setter and getters for terms
     public int getTermID() {
         return termID;
     }
@@ -35,19 +29,37 @@ public class Terms {
         this.termID = termID;
     }
 
-    public String getTermName() {
-        return termName;
+    public String getTermTitle() {
+        return termTitle;
     }
 
-    public void setTermName(String termName) {
-        this.termName = termName;
+    public void setTermTitle(String termTitle) {
+        this.termTitle = termTitle;
     }
 
-    public Double getTermNumber() {
-        return termNumber;
+    public String getTermStartDate() {
+        return termStartDate;
     }
 
-    public void setTermNumber(Double termNumber) {
-        this.termNumber = termNumber;
+    public void setTermStartDate(String termStartDate) {
+        this.termStartDate = termStartDate;
+    }
+
+    public String getTermEndDate() {
+        return termEndDate;
+    }
+
+    public void setTermEndDate(String termEndDate) {
+        this.termEndDate = termEndDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Terms{" +
+                "termID=" + termID +
+                ", termTitle='" + termTitle + '\'' +
+                ", termStartDate=" + termStartDate +
+                ", termEndDate=" + termEndDate +
+                '}';
     }
 }

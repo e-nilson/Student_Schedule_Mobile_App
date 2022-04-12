@@ -3,30 +3,27 @@ package com.example.c196.Entity;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "assessments")
+@Entity(tableName = "assessments_table")
 public class Assessments {
     @PrimaryKey(autoGenerate = true)
     private int assessmentID;
-
-    private String assessmentName;
-    private Double assessmentNumber;
+    private String assessmentType;
+    private String assessmentTitle;
+    private String assessmentStartDate;
+    private String assessmentEndDate;
+    private int courseID;
 
     // Constructors for assessments
-    public Assessments(int assessmentID, String assessmentName, Double assessmentNumber) {
+    public Assessments(int assessmentID, String assessmentType, String assessmentTitle, String assessmentStartDate, String assessmentEndDate, int courseID) {
         this.assessmentID = assessmentID;
-        this.assessmentName = assessmentName;
-        this.assessmentNumber = assessmentNumber;
+        this.assessmentType = assessmentType;
+        this.assessmentTitle = assessmentTitle;
+        this.assessmentStartDate = assessmentStartDate;
+        this.assessmentEndDate = assessmentEndDate;
+        this.courseID = courseID;
     }
 
-    @Override
-    public String toString() {
-        return "Assessments{" +
-                "assessmentID=" + assessmentID +
-                ", assessmentName='" + assessmentName + '\'' +
-                ", assessmentNumber=" + assessmentNumber +
-                '}';
-    }
-
+    // Setter and getters for assessments
     public int getAssessmentID() {
         return assessmentID;
     }
@@ -35,19 +32,55 @@ public class Assessments {
         this.assessmentID = assessmentID;
     }
 
-    public String getAssessmentName() {
-        return assessmentName;
+    public String getAssessmentType() {
+        return assessmentType;
     }
 
-    public void setAssessmentName(String assessmentName) {
-        this.assessmentName = assessmentName;
+    public void setAssessmentType(String assessmentType) {
+        this.assessmentType = assessmentType;
     }
 
-    public Double getAssessmentNumber() {
-        return assessmentNumber;
+    public String getAssessmentTitle() {
+        return assessmentTitle;
     }
 
-    public void setAssessmentNumber(Double assessmentNumber) {
-        this.assessmentNumber = assessmentNumber;
+    public void setAssessmentTitle(String assessmentTitle) {
+        this.assessmentTitle = assessmentTitle;
+    }
+
+    public String getAssessmentStartDate() {
+        return assessmentStartDate;
+    }
+
+    public void setAssessmentStartDate(String assessmentStartDate) {
+        this.assessmentStartDate = assessmentStartDate;
+    }
+
+    public String getAssessmentEndDate() {
+        return assessmentEndDate;
+    }
+
+    public void setAssessmentEndDate(String assessmentEndDate) {
+        this.assessmentEndDate = assessmentEndDate;
+    }
+
+    public int getCourseID() {
+        return courseID;
+    }
+
+    public void setCourseID(int courseID) {
+        this.courseID = courseID;
+    }
+
+    @Override
+    public String toString() {
+        return "Assessments{" +
+                "assessmentID=" + assessmentID +
+                ", assessmentType='" + assessmentType + '\'' +
+                ", assessmentTitle='" + assessmentTitle + '\'' +
+                ", assessmentStartDate=" + assessmentStartDate +
+                ", assessmentEndDate=" + assessmentEndDate +
+                ", courseID=" + courseID +
+                '}';
     }
 }
