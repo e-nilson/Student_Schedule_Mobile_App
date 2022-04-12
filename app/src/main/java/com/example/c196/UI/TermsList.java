@@ -8,6 +8,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.c196.Database.Repository;
+import com.example.c196.Entity.Terms;
 import com.example.c196.R;
 
 public class TermsList extends AppCompatActivity {
@@ -47,5 +49,4 @@ public class TermsList extends AppCompatActivity {
         Intent intent = new Intent(TermsList.this, DetailedTermView.class);
         startActivity(intent);
     }
-
 }
