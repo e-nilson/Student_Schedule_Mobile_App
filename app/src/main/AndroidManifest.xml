@@ -10,19 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.C196">
         <activity
-            android:name=".UI.DetailedAssessmentView"
+            android:name=".UI.AssessmentsDetails"
             android:parentActivityName=".UI.AssessmentsList"
             android:label="Assessment Details"
-            android:exported="false" />
-        <activity
-            android:name=".UI.DetailedTermView"
-            android:parentActivityName=".UI.TermsList"
-            android:label="Term Details"
-            android:exported="false" />
-        <activity
-            android:name=".UI.DetailedCourseView"
-            android:parentActivityName=".UI.CoursesList"
-            android:label="Course Details"
             android:exported="false" />
         <activity
             android:name=".UI.AssessmentsList"

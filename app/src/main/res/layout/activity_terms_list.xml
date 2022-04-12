@@ -6,49 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".UI.TermsList">
 
-    <TextView
-        android:id="@+id/termText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Terms"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.075" />
-
-    <Button
-        android:id="@+id/term1"
-        android:layout_width="407dp"
-        android:layout_height="75dp"
-        android:layout_marginBottom="16dp"
-        android:onClick="DetailedTermView"
-        android:text="Term 1"
-        app:layout_constraintBottom_toTopOf="@+id/term2"
-        app:layout_constraintLeft_toLeftOf="parent" />
-
-    <Button
-        android:id="@+id/term2"
-        android:layout_width="407dp"
-        android:layout_height="75dp"
-        android:layout_marginBottom="428dp"
-        android:onClick="DetailedTermView"
-        android:text="Term 2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
         android:clickable="true"
         android:onClick="addTerm"
-        android:layout_margin="20dp"
-        app:srcCompat="@drawable/ic_baseline_add_circle_outline_24"
+        app:backgroundTint="#e9d820"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteX="339dp"
-        tools:layout_editor_absoluteY="659dp" />
+        app:srcCompat="@drawable/ic_baseline_add_circle_outline_24" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/termsrecyclerview"
+        android:layout_width="410dp"
+        android:layout_height="652dp"
+        android:background="#206f91"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

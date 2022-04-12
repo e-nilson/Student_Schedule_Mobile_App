@@ -9,12 +9,12 @@ import android.view.View;
 
 import com.example.c196.R;
 
-public class DetailedTermView extends AppCompatActivity {
+public class AssessmentsDetails extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detailed_term_view);
+        setContentView(R.layout.activity_assessments_details);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -22,7 +22,7 @@ public class DetailedTermView extends AppCompatActivity {
     // Creates a menu
     public boolean onCreateOptionsMenu(Menu menu) {
         // This adds items to the action bar if it's present
-        getMenuInflater().inflate(R.menu.menu_detailedtermview, menu);
+        getMenuInflater().inflate(R.menu.menu_detailedassessmentview, menu);
         return true;
     }
 
@@ -36,7 +36,7 @@ public class DetailedTermView extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    // adds details about the selected term
-    public void addTermDetails(View view) {
+    // adds details about the selected assessment
+    public void addAssessmentDetails(View view) {
     }
 }

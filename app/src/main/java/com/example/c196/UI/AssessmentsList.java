@@ -8,9 +8,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.c196.Database.Repository;
-import com.example.c196.Entity.Assessments;
-import com.example.c196.Entity.Courses;
 import com.example.c196.R;
 
 public class AssessmentsList extends AppCompatActivity {
@@ -24,7 +21,7 @@ public class AssessmentsList extends AppCompatActivity {
     }
 
     public void DetailedAssessmentView(View view) {
-        Intent intent = new Intent(AssessmentsList.this, DetailedAssessmentView.class);
+        Intent intent = new Intent(AssessmentsList.this, AssessmentsDetails.class);
         startActivity(intent);
     }
 
@@ -47,7 +44,7 @@ public class AssessmentsList extends AppCompatActivity {
 
     // Adds an assessment to the assessment list
     public void addAssessment(View view) {
-        Intent intent = new Intent(AssessmentsList.this, DetailedAssessmentView.class);
+        Intent intent = new Intent(AssessmentsList.this, AssessmentsDetails.class);
         startActivity(intent);
     }
 }

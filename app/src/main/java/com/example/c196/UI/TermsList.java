@@ -1,6 +1,8 @@
 package com.example.c196.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +14,8 @@ import com.example.c196.Database.Repository;
 import com.example.c196.Entity.Terms;
 import com.example.c196.R;
 
+import java.util.List;
+
 public class TermsList extends AppCompatActivity {
 
     @Override
@@ -20,11 +24,15 @@ public class TermsList extends AppCompatActivity {
         setContentView(R.layout.activity_terms_list);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
 
-    public void DetailedTermView(View view) {
-        Intent intent = new Intent(TermsList.this, DetailedTermView.class);
-        startActivity(intent);
+        RecyclerView recyclerView = findViewById(R.id.termsrecyclerview);
+        Repository repository = new Repository(getApplication());
+
+        List<Terms> terms = repository.getAllTerms();
+        final TermsAdapter adapter = new TermsAdapter(this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter.setTerms(terms);
     }
 
     // Creates a menu
@@ -46,7 +54,5 @@ public class TermsList extends AppCompatActivity {
 
     // Adds a term to the course list
     public void addTerm(View view) {
-        Intent intent = new Intent(TermsList.this, DetailedTermView.class);
-        startActivity(intent);
     }
 }

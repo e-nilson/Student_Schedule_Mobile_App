@@ -23,11 +23,6 @@ public class CoursesList extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    public void DetailedCourseView(View view) {
-        Intent intent = new Intent(CoursesList.this, DetailedCourseView.class);
-        startActivity(intent);
-    }
-
     // Creates a menu
     public boolean onCreateOptionsMenu(Menu menu) {
         // This adds items to the action bar if it's present
@@ -43,11 +38,5 @@ public class CoursesList extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    // Adds a course to the course list
-    public void addCourse(View view) {
-        Intent intent = new Intent(CoursesList.this, DetailedCourseView.class);
-        startActivity(intent);
     }
 }

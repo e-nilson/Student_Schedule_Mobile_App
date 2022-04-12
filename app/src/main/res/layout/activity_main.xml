@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#206f91"
     tools:context=".UI.MainActivity">
 
     <TextView
@@ -34,6 +35,9 @@
         android:layout_marginBottom="20dp"
         android:onClick="Terms"
         android:text="Terms"
+        android:textColor="#206f91"
+        android:backgroundTint="#e9d820"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/courses"
         app:layout_constraintLeft_toLeftOf="parent"
         tools:layout_editor_absoluteX="2dp" />
@@ -45,6 +49,9 @@
         android:layout_marginBottom="20dp"
         android:onClick="Courses"
         android:text="Courses"
+        android:textColor="#206f91"
+        android:backgroundTint="#e9d820"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/assessments"
         app:layout_constraintLeft_toLeftOf="parent"
         tools:layout_editor_absoluteX="2dp" />
@@ -56,6 +63,9 @@
         android:layout_marginBottom="30dp"
         android:onClick="Assessments"
         android:text="Assessments"
+        android:textColor="#206f91"
+        android:textStyle="bold"
+        android:backgroundTint="#e9d820"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         tools:layout_editor_absoluteX="2dp" />
