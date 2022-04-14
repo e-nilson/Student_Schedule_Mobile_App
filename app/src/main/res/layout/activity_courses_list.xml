@@ -8,7 +8,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="200dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,14 +26,15 @@
                     android:id="@+id/textViewCourseTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Course Title" />
+                    android:layout_weight="1"
+                    android:text="Course Title: " ></TextView>
 
                 <EditText
                     android:id="@+id/editCourseTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Software QA" />
+                    android:hint="Software QA" ></EditText>
 
             </LinearLayout>
             <LinearLayout
@@ -44,14 +47,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Start Date" />
+                    android:text="Start Date: " ></TextView>
 
                 <EditText
-                    android:id="@+id/editTextStartDate"
+                    android:id="@+id/editCourseStartDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="01/01/2022" />
+                    android:hint="01/01/2022" ></EditText>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -63,14 +66,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="End Date" />
+                    android:text="End Date: "></TextView>
 
                 <EditText
-                    android:id="@+id/editTextEndDate"
+                    android:id="@+id/editCourseEndDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="03/31/2022" />
+                    android:hint="03/31/2022" ></EditText>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -78,18 +81,18 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/textViewCourseStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Status" />
+                    android:text="Course Status: " ></TextView>
 
                 <EditText
-                    android:id="@+id/editStatus"
+                    android:id="@+id/editCourseStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="In-Progress" />
+                    android:hint="In-Progress" ></EditText>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

@@ -6,11 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".UI.TermsList">
 
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/termsrecyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
         android:clickable="true"
         android:onClick="addTerm"
         app:backgroundTint="#e9d820"
@@ -18,12 +31,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:srcCompat="@drawable/ic_baseline_add_circle_outline_24" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/termsrecyclerview"
-        android:layout_width="410dp"
-        android:layout_height="652dp"
-        android:background="#206f91"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,20 +17,27 @@ import java.util.List;
 
 public class TermsAdapter extends RecyclerView.Adapter<TermsAdapter.TermsViewHolder> {
     class TermsViewHolder extends RecyclerView.ViewHolder {
-        private final TextView termItemView;
-        private final TextView termItemView2;
+        //private final TextView termIDItemView;
+        private final TextView termTitleItemView;
+        private final TextView termStartItemView;
+        private final TextView termEndItemView;
 
+        // Constructor
         private TermsViewHolder(View itemView) {
             super(itemView);
-            termItemView = itemView.findViewById(R.id.textView);
-            termItemView2 = itemView.findViewById(R.id.textView2);
+            //termIDItemView = itemView.findViewById(R.id.textViewTermID);
+            termTitleItemView = itemView.findViewById(R.id.textViewTermTitle);
+            termStartItemView = itemView.findViewById(R.id.textViewTermStart);
+            termEndItemView = itemView.findViewById(R.id.textViewTermEndDate);
             itemView.setOnClickListener(new View.OnClickListener() {
+
+                // Sends it to the course screen
                 @Override
                 public void onClick(View view) {
                     int position = getAdapterPosition();
                     final Terms current = mTerms.get(position);
                     Intent intent = new Intent(context,CoursesList.class);
-                    intent.putExtra("termID", current.getTermID());
+                    //intent.putExtra("termID", current.getTermID());
                     intent.putExtra("termTitle", current.getTermTitle());
                     intent.putExtra("startDate", current.getTermStartDate());
                     intent.putExtra("endDate", current.getTermEndDate());
@@ -52,20 +59,25 @@ public class TermsAdapter extends RecyclerView.Adapter<TermsAdapter.TermsViewHol
     @NonNull
     @Override
     public TermsAdapter.TermsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = mInflater.inflate(R.layout.terms_list_item,parent,false);
+        View itemView = mInflater.inflate(R.layout.term_list_item,parent,false);
         return new TermsViewHolder(itemView);
     }
 
+    // This is where you put things on the text field
     @Override
     public void onBindViewHolder(@NonNull TermsAdapter.TermsViewHolder holder, int position) {
         if(mTerms !=null) {
             final Terms current = mTerms.get(position);
-            holder.termItemView.setText(Integer.toString(current.getTermID()));
-            holder.termItemView2.setText(current.getTermTitle());
+            //holder.termIDItemView.setText(Integer.toString(current.getTermID()));
+            holder.termTitleItemView.setText(current.getTermTitle());
+            holder.termStartItemView.setText(current.getTermStartDate());
+            holder.termEndItemView.setText(current.getTermEndDate());
         }
         else {
-            holder.termItemView.setText("No term ID");
-            holder.termItemView2.setText("No term title");
+            //holder.termIDItemView.setText("No Term ID");
+            holder.termTitleItemView.setText("No Term Title");
+            holder.termStartItemView.setText("No Term Start Date");
+            holder.termEndItemView.setText("No Term End Date");
         }
 
     }

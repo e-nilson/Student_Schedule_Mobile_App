@@ -23,7 +23,7 @@ public class Repository {
     private List<Assessments> mAllAssessments;
 
     private static int NUMBER_OF_THREADS=4;
-    static final ExecutorService databaseExecutor= Executors.newFixedThreadPool(NUMBER_OF_THREADS);
+    static final ExecutorService databaseExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
     public Repository(Application application){
         StudentScheduleBuilder db=StudentScheduleBuilder.getDatabase(application);
@@ -84,7 +84,7 @@ public class Repository {
     //
     //
     // Gets all courses from the database
-    public List<Courses> getmAllCourses(){
+    public List<Courses> getAllCourses(){
         databaseExecutor.execute(()->{
             mAllCourses= mCoursesDAO.getAllCourses();
         });
@@ -132,7 +132,7 @@ public class Repository {
     //
     //
     // Gets all assessments from the database
-    public List<Assessments> getmAllAssessments(){
+    public List<Assessments> getAllAssessments(){
         databaseExecutor.execute(()->{
             mAllAssessments= mAssessmentsDAO.getAllAssessments();
         });

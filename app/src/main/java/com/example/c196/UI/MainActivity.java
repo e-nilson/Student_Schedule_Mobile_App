@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Repository repository = new Repository(getApplication());
-        Terms termsEntity = new Terms(1,"Winter", "01/01/22","03/31/22" );
+        Terms termsEntity = new Terms(1,"Spring Term", "03/01/22","06/30/22" );
         repository.insert(termsEntity);
         Courses coursesEntity = new Courses(1, "C196", "01/01/22","03/31/22","in-progress","Carolyn","123-456-7890","c@wgu.edu", "test notes", 1);
         repository.insert(coursesEntity);

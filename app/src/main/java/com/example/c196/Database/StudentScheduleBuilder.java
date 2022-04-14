@@ -28,7 +28,7 @@ public abstract class StudentScheduleBuilder extends RoomDatabase {
         if (INSTANCE==null){
             synchronized (StudentScheduleBuilder.class) {
                 if(INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),StudentScheduleBuilder.class, "myStudentDatabase")
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),StudentScheduleBuilder.class, "myStudentDatabase.db")
                             .fallbackToDestructiveMigration()
                             .build();
                 }

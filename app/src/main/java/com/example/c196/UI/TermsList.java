@@ -14,9 +14,16 @@ import com.example.c196.Database.Repository;
 import com.example.c196.Entity.Terms;
 import com.example.c196.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TermsList extends AppCompatActivity {
+
+    private Repository repository;
+    Terms currentTerms;
+    private RecyclerView recyclerView;
+    private int numTerms;
+    private int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +35,11 @@ public class TermsList extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.termsrecyclerview);
         Repository repository = new Repository(getApplication());
 
-        List<Terms> terms = repository.getAllTerms();
-        final TermsAdapter adapter = new TermsAdapter(this);
-        recyclerView.setAdapter(adapter);
+        List<Terms> allTerms = repository.getAllTerms();
+        final TermsAdapter termsAdapter = new TermsAdapter(this);
+        recyclerView.setAdapter(termsAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter.setTerms(terms);
+        termsAdapter.setTerms(allTerms);
     }
 
     // Creates a menu
@@ -48,11 +55,33 @@ public class TermsList extends AppCompatActivity {
             case android.R.id.home:
                 this.finish();
                 return true;
+
+                /*
+            case R.id.refresh:
+                refreshTermsList();
+                return true;
+
+                 */
         }
         return super.onOptionsItemSelected(item);
     }
 
+    private void refreshTermsList() {
+        recyclerView = findViewById(R.id.termsrecyclerview);
+        final TermsAdapter adapter = new TermsAdapter(this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        List<Terms> filteredTerms = new ArrayList<>();
+        List<Terms> allTerms = repository.getAllTerms();
+
+        numTerms = filteredTerms.size();
+        adapter.setTerms(allTerms);
+    }
+
     // Adds a term to the course list
     public void addTerm(View view) {
+        Intent intent = new Intent(TermsList.this, CoursesList.class);
+        if(currentTerms != null) intent.putExtra("termID", currentTerms.getTermID());
+        startActivity(intent);
     }
 }
