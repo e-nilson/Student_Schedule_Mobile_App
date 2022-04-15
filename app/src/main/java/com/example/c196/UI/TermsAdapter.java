@@ -16,6 +16,10 @@ import com.example.c196.R;
 import java.util.List;
 
 public class TermsAdapter extends RecyclerView.Adapter<TermsAdapter.TermsViewHolder> {
+    private List<Terms> mTerms;
+    private final Context context;
+    private final LayoutInflater mInflater;
+
     class TermsViewHolder extends RecyclerView.ViewHolder {
         //private final TextView termIDItemView;
         private final TextView termTitleItemView;
@@ -26,9 +30,9 @@ public class TermsAdapter extends RecyclerView.Adapter<TermsAdapter.TermsViewHol
         private TermsViewHolder(View itemView) {
             super(itemView);
             //termIDItemView = itemView.findViewById(R.id.textViewTermID);
-            termTitleItemView = itemView.findViewById(R.id.textViewTermTitle);
-            termStartItemView = itemView.findViewById(R.id.textViewTermStart);
-            termEndItemView = itemView.findViewById(R.id.textViewTermEndDate);
+            termTitleItemView = itemView.findViewById(R.id.textView3);
+            termStartItemView = itemView.findViewById(R.id.textView4);
+            termEndItemView = itemView.findViewById(R.id.textView5);
             itemView.setOnClickListener(new View.OnClickListener() {
 
                 // Sends it to the course screen
@@ -37,7 +41,7 @@ public class TermsAdapter extends RecyclerView.Adapter<TermsAdapter.TermsViewHol
                     int position = getAdapterPosition();
                     final Terms current = mTerms.get(position);
                     Intent intent = new Intent(context,CoursesList.class);
-                    //intent.putExtra("termID", current.getTermID());
+                    intent.putExtra("termID", current.getTermID());
                     intent.putExtra("termTitle", current.getTermTitle());
                     intent.putExtra("startDate", current.getTermStartDate());
                     intent.putExtra("endDate", current.getTermEndDate());
@@ -46,9 +50,7 @@ public class TermsAdapter extends RecyclerView.Adapter<TermsAdapter.TermsViewHol
             });
         }
     }
-    private List<Terms> mTerms;
-    private final Context context;
-    private final LayoutInflater mInflater;
+
 
     public TermsAdapter(Context context){
         mInflater = LayoutInflater.from(context);
@@ -59,7 +61,7 @@ public class TermsAdapter extends RecyclerView.Adapter<TermsAdapter.TermsViewHol
     @NonNull
     @Override
     public TermsAdapter.TermsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = mInflater.inflate(R.layout.term_list_item,parent,false);
+        View itemView = mInflater.inflate(R.layout.terms_list,parent,false);
         return new TermsViewHolder(itemView);
     }
 

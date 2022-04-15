@@ -79,7 +79,7 @@ public class TermsList extends AppCompatActivity {
     }
 
     // Adds a term to the course list
-    public void addTerm(View view) {
+    public void enterCourses(View view) {
         Intent intent = new Intent(TermsList.this, CoursesList.class);
         if(currentTerms != null) intent.putExtra("termID", currentTerms.getTermID());
         startActivity(intent);
