@@ -10,22 +10,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.C196">
         <activity
-            android:name=".UI.AssessmentsDetails"
-            android:parentActivityName=".UI.AssessmentsList"
+            android:name=".UI.AssessmentDetailList"
+            android:parentActivityName=".UI.AssessmentList"
             android:label="Assessment Details"
             android:exported="false" />
         <activity
-            android:name=".UI.AssessmentsList"
+            android:name=".UI.AssessmentList"
             android:parentActivityName=".UI.MainActivity"
             android:label="Assessments"
             android:exported="false" />
         <activity
-            android:name=".UI.CoursesList"
+            android:name=".UI.CourseDetailList"
+            android:parentActivityName=".UI.CourseList"
+            android:label="Term and Course Details"
+            android:exported="false" />
+        <activity
+            android:name=".UI.CourseList"
             android:parentActivityName=".UI.MainActivity"
             android:label="Courses"
             android:exported="false" />
         <activity
-            android:name=".UI.TermsList"
+            android:name=".UI.TermDetailList"
+            android:parentActivityName=".UI.TermList"
+            android:label="Term and Course Details"
+            android:exported="false" />
+        <activity
+            android:name=".UI.TermList"
             android:parentActivityName=".UI.MainActivity"
             android:label="Terms"
             android:exported="false" />

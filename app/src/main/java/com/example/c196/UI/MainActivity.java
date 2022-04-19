@@ -22,26 +22,27 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Repository repository = new Repository(getApplication());
-        Terms termsEntity = new Terms(1,"Spring Term", "03/01/22","06/30/22" );
+        Terms termsEntity = new Terms(1,"Spring Term", "03/01/2022","06/30/2022" );
         repository.insert(termsEntity);
-        Courses coursesEntity = new Courses(1, "C196", "01/01/22","03/31/22","in-progress","Carolyn","123-456-7890","c@wgu.edu", "test notes", 1);
+        Courses coursesEntity = new Courses(1, "C196", "01/01/2022","03/31/2022","in-progress","Carolyn","123-456-7890","c@wgu.edu", "test notes", 1);
         repository.insert(coursesEntity);
         Assessments assessmentsEntity = new Assessments(1,"Performance Assessment", "Mobile App", "01/01/2022",  "03/31/22",1);
         repository.insert(assessmentsEntity);
     }
 
+    // navigates to the terms homepage
     public void Terms(View view) {
-        Intent intent = new Intent(MainActivity.this, TermsList.class);
+        Intent intent = new Intent(MainActivity.this, TermList.class);
         startActivity(intent);
     }
-
+    // navigates to the courses homepage
     public void Courses(View view) {
-        Intent intent = new Intent(MainActivity.this, CoursesList.class);
+        Intent intent = new Intent(MainActivity.this, CourseList.class);
         startActivity(intent);
     }
-
+    // navigates to the assessments homepage
     public void Assessments(View view) {
-        Intent intent = new Intent(MainActivity.this, AssessmentsList.class);
+        Intent intent = new Intent(MainActivity.this, AssessmentList.class);
         startActivity(intent);
     }
 }

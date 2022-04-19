@@ -1,24 +1,23 @@
 package com.example.c196.UI;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.c196.Database.Repository;
 import com.example.c196.Entity.Courses;
 import com.example.c196.Entity.Terms;
 import com.example.c196.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class CoursesList extends AppCompatActivity {
+public class TermDetailList extends AppCompatActivity {
 
     // Declare edit text
     private Repository repository;
@@ -39,19 +38,22 @@ public class CoursesList extends AppCompatActivity {
     String courseEndDate;
     String courseStatus;
 
+    // Initializes the Terms Details homepage
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_courses_list);
+        setContentView(R.layout.activity_term_detail_list);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // methods for entering and saving term from terms details page back to terms page
         termID = getIntent().getIntExtra("termID", -1);
 
-        repository = new Repository(getApplication());
+        Repository repository = new Repository(getApplication());
 
         allTerms = repository.getAllTerms();
         for (Terms t:allTerms){
-            if (t.getTermID()==termID) currentTerm = t;
+            if (t.getTermID()== termID) currentTerm = t;
         }
 
         editTitle = findViewById(R.id.editTermTitle);
@@ -64,21 +66,38 @@ public class CoursesList extends AppCompatActivity {
             editEndDate.setText(currentTerm.getTermEndDate());
         }
 
+
         RecyclerView recyclerView = findViewById(R.id.courserecyclerview);
-        final CoursesAdapter courseAdapter = new CoursesAdapter(this);
+        //Repository repository = new Repository(getApplication());
+
+        List<Courses> allCourses = repository.getAllCourses();
+        final CourseAdapter courseAdapter = new CourseAdapter(this);
+        recyclerView.setAdapter(courseAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        courseAdapter.setCourses(allCourses);
+
+
+
+        /*
+        RecyclerView recyclerView = findViewById(R.id.courserecyclerview);
+        final CourseAdapter courseAdapter = new CourseAdapter(this);
+
         recyclerView.setAdapter(courseAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         List<Courses> filteredCourses=new ArrayList<>();
         for(Courses c: repository.getAllCourses()){
-            if(c.getTermID()==termID)filteredCourses.add(c);
+            if(c.getCourseID() == id)filteredCourses.add(c);
         }
         numCourses=filteredCourses.size();
         courseAdapter.setCourses(filteredCourses);
 
+         */
 
-        // TODO
-        // RecyclerView recyclerView = findViewById(R.id.coursere)
-        /*
+
+
+
+        //RecyclerView recyclerView = findViewById(R.id.courserecyclerview)
+/*
         courseTitle = getIntent().getStringExtra("courseTitle");
         courseStartDate = getIntent().getStringExtra("courseStartDate");
         courseEndDate = getIntent().getStringExtra("courseEndDate");
@@ -90,10 +109,14 @@ public class CoursesList extends AppCompatActivity {
         editEndDate.setText(courseEndDate);
         editStatus.setText(courseStatus);
 
-         */
+ */
+
+
     }
 
-    public void saveCourse(View view) {
+
+    // Saves new term and/or course details
+    public void saveTermDetails(View view) {
         Terms terms;
         if (termID == -1) {
             int newTermID = repository.getAllTerms().get(repository.getAllTerms().size() - 1).getTermID() + 1;
@@ -108,7 +131,7 @@ public class CoursesList extends AppCompatActivity {
     // Creates a menu
     public boolean onCreateOptionsMenu(Menu menu) {
         // This adds items to the action bar if it's present
-        getMenuInflater().inflate(R.menu.menu_courseslist, menu);
+        getMenuInflater().inflate(R.menu.menu_course, menu);
         return true;
     }
 
@@ -121,4 +144,15 @@ public class CoursesList extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    // Enters the assessment page
+    /*
+    public void enterAssessments(View view) {
+        Intent intent = new Intent(TermsList.this, CoursesList.class);
+        if(currentCourses != null) intent.putExtra("courseID", currentCourses.getTermID());
+        intent.putExtra("termID", termID);
+        startActivity(intent);
+    }
+
+     */
 }

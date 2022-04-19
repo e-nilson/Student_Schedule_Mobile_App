@@ -9,12 +9,12 @@ import android.view.View;
 
 import com.example.c196.R;
 
-public class AssessmentsDetails extends AppCompatActivity {
+public class AssessmentDetailList extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_assessments_details);
+        setContentView(R.layout.activity_assessment_detail_list);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -22,7 +22,7 @@ public class AssessmentsDetails extends AppCompatActivity {
     // Creates a menu
     public boolean onCreateOptionsMenu(Menu menu) {
         // This adds items to the action bar if it's present
-        getMenuInflater().inflate(R.menu.menu_detailedassessmentview, menu);
+        getMenuInflater().inflate(R.menu.menu_assessment, menu);
         return true;
     }
 

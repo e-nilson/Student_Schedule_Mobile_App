@@ -17,7 +17,7 @@ import com.example.c196.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TermsList extends AppCompatActivity {
+public class TermList extends AppCompatActivity {
 
     private Repository repository;
     Terms currentTerms;
@@ -25,10 +25,11 @@ public class TermsList extends AppCompatActivity {
     private int numTerms;
     private int id;
 
+    // Initializes the Terms homepage
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_terms_list);
+        setContentView(R.layout.activity_term_list);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -36,16 +37,16 @@ public class TermsList extends AppCompatActivity {
         Repository repository = new Repository(getApplication());
 
         List<Terms> allTerms = repository.getAllTerms();
-        final TermsAdapter termsAdapter = new TermsAdapter(this);
-        recyclerView.setAdapter(termsAdapter);
+        final TermAdapter termAdapter = new TermAdapter(this);
+        recyclerView.setAdapter(termAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        termsAdapter.setTerms(allTerms);
+        termAdapter.setTerms(allTerms);
     }
 
     // Creates a menu
     public boolean onCreateOptionsMenu(Menu menu) {
         // This adds items to the action bar if it's present
-        getMenuInflater().inflate(R.menu.menu_termslist, menu);
+        getMenuInflater().inflate(R.menu.menu_term, menu);
         return true;
     }
 
@@ -68,7 +69,7 @@ public class TermsList extends AppCompatActivity {
 
     private void refreshTermsList() {
         recyclerView = findViewById(R.id.termsrecyclerview);
-        final TermsAdapter adapter = new TermsAdapter(this);
+        final TermAdapter adapter = new TermAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         List<Terms> filteredTerms = new ArrayList<>();
@@ -78,9 +79,9 @@ public class TermsList extends AppCompatActivity {
         adapter.setTerms(allTerms);
     }
 
-    // Adds a term to the course list
-    public void enterCourses(View view) {
-        Intent intent = new Intent(TermsList.this, CoursesList.class);
+    // Enters the term detail page
+    public void enterTermDetail(View view) {
+        Intent intent = new Intent(TermList.this, TermDetailList.class);
         if(currentTerms != null) intent.putExtra("termID", currentTerms.getTermID());
         startActivity(intent);
     }
