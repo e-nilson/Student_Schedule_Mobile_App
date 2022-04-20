@@ -38,7 +38,7 @@ public class TermDetailList extends AppCompatActivity {
     String courseEndDate;
     String courseStatus;
 
-    // Initializes the Terms Details homepage
+    // Initializes the Terms Details page
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

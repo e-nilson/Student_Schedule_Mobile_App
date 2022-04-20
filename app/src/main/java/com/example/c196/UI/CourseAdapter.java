@@ -25,7 +25,13 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
         private final TextView courseTitleItemView;
         private final TextView courseStartItemView;
         private final TextView courseEndItemView;
-        //TODO private final TextView courseStatusItemView;
+        /*
+        private final TextView courseStatusItemView;
+        private final TextView courseInstructorNameItemView;
+        private final TextView courseInstructorPhoneItemView;
+        private final TextView courseInstructorEmailItemView;
+
+         */
 
 
         private CourseViewHolder(View itemView) {
@@ -33,8 +39,17 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
             courseTitleItemView = itemView.findViewById(R.id.textViewCourseTitle);
             courseStartItemView = itemView.findViewById(R.id.textViewCourseStart);
             courseEndItemView = itemView.findViewById(R.id.textViewCourseEnd);
+            /*
+            courseStatusItemView = itemView.findViewById(R.id.textViewCourseStatus);
+            courseInstructorNameItemView = itemView.findViewById(R.id.textViewCourseInstructorName);
+            courseInstructorPhoneItemView = itemView.findViewById(R.id.textViewCourseInstructorPhone);
+            courseInstructorEmailItemView = itemView.findViewById(R.id.textViewCourseInstructorEmail);
+
+             */
+
             itemView.setOnClickListener(new View.OnClickListener() {
 
+                //Sends it to the detailed course screen
                 @Override
                 public void onClick(View view) {
                     int position = getAdapterPosition();
@@ -70,10 +85,24 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
             holder.courseTitleItemView.setText(current.getCourseTitle());
             holder.courseStartItemView.setText(current.getCourseStartDate());
             holder.courseEndItemView.setText(current.getCourseEndDate());
+            /*
+            holder.courseStatusItemView.setText(current.getCourseStatus());
+            holder.courseInstructorNameItemView.setText(current.getInstructorName());
+            holder.courseInstructorPhoneItemView.setText(current.getInstructorPhone());
+            holder.courseInstructorEmailItemView.setText(current.getInstructorEmail());
+
+             */
         } else {
             holder.courseTitleItemView.setText("No Course Title");
             holder.courseStartItemView.setText("No Course Start Date");
             holder.courseEndItemView.setText("No Course End Date");
+            /*
+            holder.courseStatusItemView.setText("No Course Status");
+            holder.courseInstructorNameItemView.setText("No Instructor Name");
+            holder.courseInstructorPhoneItemView.setText("No Instructor Phone");
+            holder.courseInstructorEmailItemView.setText("No Instructor Email");
+
+             */
         }
     }
 

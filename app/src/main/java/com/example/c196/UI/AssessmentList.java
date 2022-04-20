@@ -24,6 +24,7 @@ public class AssessmentList extends AppCompatActivity {
     private int numAssessments;
     private int id;
 
+    // Initializes the Assessments homepage
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

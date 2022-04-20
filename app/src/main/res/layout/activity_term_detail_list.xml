@@ -85,9 +85,11 @@
         android:layout_height="296dp"
         android:layout_marginBottom="76dp"
         android:background="@color/purple_200"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView"
         app:layout_constraintBottom_toTopOf="@+id/floatingActionButton2"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView"
+        app:layout_constraintVertical_bias="1.0" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton2"

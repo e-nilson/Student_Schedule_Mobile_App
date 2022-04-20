@@ -38,7 +38,7 @@ public class CourseDetailList extends AppCompatActivity {
     EditText editEmail;
     EditText editNotes;
 
-
+    // Initializes the Course Details page
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,15 +55,24 @@ public class CourseDetailList extends AppCompatActivity {
         for (Courses c:allCourses){
             if (c.getCourseID()== courseID) currentCourse = c;
         }
-
         editTitle = findViewById(R.id.editCourseTitle);
         editStartDate = findViewById(R.id.editCourseStartDate);
         editEndDate = findViewById(R.id.editCourseEndDate);
+        editStatus = findViewById(R.id.editCourseStatus);
+        editName = findViewById(R.id.editCourseInstructorName);
+        editPhone = findViewById(R.id.editCourseInstructorPhone);
+        editEmail = findViewById(R.id.editCourseInstructorEmail);
+        editNotes = findViewById(R.id.editCourseNotes);
 
         if (currentCourse != null) {
             editTitle.setText(currentCourse.getCourseTitle());
             editStartDate.setText(currentCourse.getCourseStartDate());
             editEndDate.setText(currentCourse.getCourseEndDate());
+            editStatus.setText(currentCourse.getCourseStatus());
+            editName.setText(currentCourse.getInstructorName());
+            editPhone.setText(currentCourse.getInstructorPhone());
+            editEmail.setText(currentCourse.getInstructorEmail());
+            editNotes.setText(currentCourse.getCourseNotes());
         }
 
 
