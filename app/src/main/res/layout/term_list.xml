@@ -44,6 +44,7 @@
                 android:layout_margin="0dp"
                 android:layout_weight="1"
                 android:textAlignment="viewStart"
+                android:text="TextView"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -71,6 +72,7 @@
                 android:layout_margin="0dp"
                 android:layout_weight="1"
                 android:textAlignment="viewStart"
+                android:text="TextView"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

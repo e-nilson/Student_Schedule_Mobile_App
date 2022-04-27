@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.c196.Database.Repository;
 import com.example.c196.Entity.Assessments;
@@ -18,8 +19,9 @@ import java.util.List;
 
 public class AssessmentList extends AppCompatActivity {
 
+    private int assessmentID;
     private Repository repository;
-    Assessments currentAssessments;
+    Assessments currentAssessment;
     private RecyclerView recyclerView;
     private int numAssessments;
     private int id;
@@ -42,10 +44,13 @@ public class AssessmentList extends AppCompatActivity {
         assessmentAdapter.setAssessments(allAssessments);
     }
 
+    /*
     public void DetailedAssessmentView(View view) {
         Intent intent = new Intent(AssessmentList.this, AssessmentDetailList.class);
         startActivity(intent);
     }
+
+     */
 
     // Creates a menu
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -57,17 +62,25 @@ public class AssessmentList extends AppCompatActivity {
     // Tells what happens with the created menu
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
+            case R.id.home:
+                Intent homeIntent = new Intent(AssessmentList.this, MainActivity.class);
+                startActivity(homeIntent);
                 return true;
+
         }
         return super.onOptionsItemSelected(item);
     }
 
+/*
     // Adds an assessment to the assessment list
     public void enterAssessmentDetail(View view) {
         Intent intent = new Intent(AssessmentList.this, AssessmentDetailList.class);
-        if(currentAssessments != null) intent.putExtra("assessmentID", currentAssessments.getAssessmentID());
+        if(currentAssessment != null) intent.putExtra("assessmentID", currentAssessment.getAssessmentID());
+        intent.putExtra("assessmentID", assessmentID);
         startActivity(intent);
     }
+
+ */
+
+
 }

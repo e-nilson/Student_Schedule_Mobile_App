@@ -1,10 +1,12 @@
 package com.example.c196.UI;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,15 +17,19 @@ import com.example.c196.Entity.Courses;
 import com.example.c196.Entity.Terms;
 import com.example.c196.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TermDetailList extends AppCompatActivity {
 
     // Declare edit text
-    private Repository repository;
     public static int numCourses;
+
+    private Repository repository;
     private int termID;
     private Courses currentCourses;
+    private int numTerms;
+    
     Terms currentTerm;
     RecyclerView recyclerView;
     List<Terms> allTerms;
@@ -31,12 +37,6 @@ public class TermDetailList extends AppCompatActivity {
     EditText editTitle;
     EditText editStartDate;
     EditText editEndDate;
-    EditText editStatus;
-
-    String courseTitle;
-    String courseStartDate;
-    String courseEndDate;
-    String courseStatus;
 
     // Initializes the Terms Details page
     @Override
@@ -48,69 +48,31 @@ public class TermDetailList extends AppCompatActivity {
 
         // methods for entering and saving term from terms details page back to terms page
         termID = getIntent().getIntExtra("termID", -1);
-
-        Repository repository = new Repository(getApplication());
-
+        repository = new Repository(getApplication());
         allTerms = repository.getAllTerms();
         for (Terms t:allTerms){
             if (t.getTermID()== termID) currentTerm = t;
         }
-
         editTitle = findViewById(R.id.editTermTitle);
         editStartDate = findViewById(R.id.editTermStartDate);
         editEndDate = findViewById(R.id.editTermEndDate);
-
         if (currentTerm != null) {
             editTitle.setText(currentTerm.getTermTitle());
             editStartDate.setText(currentTerm.getTermStartDate());
             editEndDate.setText(currentTerm.getTermEndDate());
         }
 
-
+        // Adds the course recycler view to the terms detail page based on the term ID
         RecyclerView recyclerView = findViewById(R.id.courserecyclerview);
-        //Repository repository = new Repository(getApplication());
-
-        List<Courses> allCourses = repository.getAllCourses();
         final CourseAdapter courseAdapter = new CourseAdapter(this);
         recyclerView.setAdapter(courseAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        courseAdapter.setCourses(allCourses);
-
-
-
-        /*
-        RecyclerView recyclerView = findViewById(R.id.courserecyclerview);
-        final CourseAdapter courseAdapter = new CourseAdapter(this);
-
-        recyclerView.setAdapter(courseAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        List<Courses> filteredCourses=new ArrayList<>();
+        List<Courses> filteredCourses = new ArrayList<>();
         for(Courses c: repository.getAllCourses()){
-            if(c.getCourseID() == id)filteredCourses.add(c);
+            if(c.getTermID() == termID)filteredCourses.add(c);
         }
         numCourses=filteredCourses.size();
         courseAdapter.setCourses(filteredCourses);
-
-         */
-
-
-
-
-        //RecyclerView recyclerView = findViewById(R.id.courserecyclerview)
-/*
-        courseTitle = getIntent().getStringExtra("courseTitle");
-        courseStartDate = getIntent().getStringExtra("courseStartDate");
-        courseEndDate = getIntent().getStringExtra("courseEndDate");
-        courseStatus = getIntent().getStringExtra("courseStatus");
-
-
-        editTitle.setText(courseTitle);
-        editStartDate.setText(courseStartDate);
-        editEndDate.setText(courseEndDate);
-        editStatus.setText(courseStatus);
-
- */
-
 
     }
 
@@ -126,33 +88,45 @@ public class TermDetailList extends AppCompatActivity {
             terms = new Terms(termID, editTitle.getText().toString(), editStartDate.getText().toString(), editEndDate.getText().toString());
             repository.update(terms);
         }
+        Intent intent = new Intent(TermDetailList.this, TermList.class);
+        startActivity(intent);
     }
 
     // Creates a menu
     public boolean onCreateOptionsMenu(Menu menu) {
         // This adds items to the action bar if it's present
-        getMenuInflater().inflate(R.menu.menu_course, menu);
+        getMenuInflater().inflate(R.menu.menu_term_detail, menu);
         return true;
     }
 
     // Tells what happens with the created menu
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
+            case R.id.home:
+                Intent homeIntent = new Intent(TermDetailList.this, MainActivity.class);
+                startActivity(homeIntent);
+                return true;
+
+            case R.id.deleteTerm:
+                if (numCourses == 0) {
+                    repository.delete(currentTerm);
+                    Toast.makeText(getApplicationContext(), "Term deleted successfully", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(TermDetailList.this, TermList.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Cannot delete a Term that contains courses", Toast.LENGTH_LONG).show();
+                }
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    // Enters the assessment page
-    /*
-    public void enterAssessments(View view) {
-        Intent intent = new Intent(TermsList.this, CoursesList.class);
+
+    // Enters the detailed course page
+    public void enterCourseDetail (View view) {
+        Intent intent = new Intent(TermDetailList.this, CourseDetailList.class);
         if(currentCourses != null) intent.putExtra("courseID", currentCourses.getTermID());
         intent.putExtra("termID", termID);
         startActivity(intent);
     }
-
-     */
 }

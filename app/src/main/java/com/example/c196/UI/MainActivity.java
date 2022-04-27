@@ -35,11 +35,13 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, TermList.class);
         startActivity(intent);
     }
+
     // navigates to the courses homepage
     public void Courses(View view) {
         Intent intent = new Intent(MainActivity.this, CourseList.class);
         startActivity(intent);
     }
+
     // navigates to the assessments homepage
     public void Assessments(View view) {
         Intent intent = new Intent(MainActivity.this, AssessmentList.class);

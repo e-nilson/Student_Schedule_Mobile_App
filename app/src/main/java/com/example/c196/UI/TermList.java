@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.c196.Database.Repository;
 import com.example.c196.Entity.Terms;
@@ -20,7 +21,7 @@ import java.util.List;
 public class TermList extends AppCompatActivity {
 
     private Repository repository;
-    Terms currentTerms;
+    Terms currentTerm;
     private RecyclerView recyclerView;
     private int numTerms;
     private int id;
@@ -53,21 +54,19 @@ public class TermList extends AppCompatActivity {
     // Tells what happens with the created menu
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
+            case R.id.home:
+                Intent homeIntent = new Intent(TermList.this, MainActivity.class);
+                startActivity(homeIntent);
                 return true;
 
-                /*
             case R.id.refresh:
-                refreshTermsList();
+                refreshTermList();
                 return true;
-
-                 */
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void refreshTermsList() {
+    private void refreshTermList() {
         recyclerView = findViewById(R.id.termsrecyclerview);
         final TermAdapter adapter = new TermAdapter(this);
         recyclerView.setAdapter(adapter);
@@ -82,7 +81,7 @@ public class TermList extends AppCompatActivity {
     // Enters the term detail page
     public void enterTermDetail(View view) {
         Intent intent = new Intent(TermList.this, TermDetailList.class);
-        if(currentTerms != null) intent.putExtra("termID", currentTerms.getTermID());
+        if(currentTerm != null) intent.putExtra("termID", currentTerm.getTermID());
         startActivity(intent);
     }
 }

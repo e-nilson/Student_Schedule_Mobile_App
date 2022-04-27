@@ -30,10 +30,9 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
         private final TextView courseInstructorNameItemView;
         private final TextView courseInstructorPhoneItemView;
         private final TextView courseInstructorEmailItemView;
-
          */
 
-
+        // Constructor
         private CourseViewHolder(View itemView) {
             super(itemView);
             courseTitleItemView = itemView.findViewById(R.id.textViewCourseTitle);
@@ -44,11 +43,8 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
             courseInstructorNameItemView = itemView.findViewById(R.id.textViewCourseInstructorName);
             courseInstructorPhoneItemView = itemView.findViewById(R.id.textViewCourseInstructorPhone);
             courseInstructorEmailItemView = itemView.findViewById(R.id.textViewCourseInstructorEmail);
-
              */
-
             itemView.setOnClickListener(new View.OnClickListener() {
-
                 //Sends it to the detailed course screen
                 @Override
                 public void onClick(View view) {
@@ -57,7 +53,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
                     Intent intent = new Intent(context, CourseDetailList.class);
                     intent.putExtra("courseID", current.getCourseID());
                     intent.putExtra("courseTitle", current.getCourseTitle());
-                    intent.putExtra("coursestartDate", current.getCourseStartDate());
+                    intent.putExtra("courseStartDate", current.getCourseStartDate());
                     intent.putExtra("courseEndDate", current.getCourseEndDate());
                     intent.putExtra("courseStatus", current.getCourseStatus());
                     intent.putExtra("instructorName", current.getInstructorName());
@@ -67,7 +63,6 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
                     context.startActivity(intent);
                 }
             });
-
         }
     }
 
@@ -90,7 +85,6 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
             holder.courseInstructorNameItemView.setText(current.getInstructorName());
             holder.courseInstructorPhoneItemView.setText(current.getInstructorPhone());
             holder.courseInstructorEmailItemView.setText(current.getInstructorEmail());
-
              */
         } else {
             holder.courseTitleItemView.setText("No Course Title");
@@ -101,7 +95,6 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
             holder.courseInstructorNameItemView.setText("No Instructor Name");
             holder.courseInstructorPhoneItemView.setText("No Instructor Phone");
             holder.courseInstructorEmailItemView.setText("No Instructor Email");
-
              */
         }
     }
@@ -118,7 +111,6 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
         mCourses = courses;
         notifyDataSetChanged();
     }
-
 
     public CourseAdapter(Context context) {
         mInflater = LayoutInflater.from(context);

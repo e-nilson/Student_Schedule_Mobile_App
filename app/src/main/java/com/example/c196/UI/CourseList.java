@@ -9,9 +9,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.c196.Database.Repository;
 import com.example.c196.Entity.Courses;
+import com.example.c196.Entity.Terms;
 import com.example.c196.R;
 
 import java.util.ArrayList;
@@ -19,12 +21,12 @@ import java.util.List;
 
 public class CourseList extends AppCompatActivity {
 
-    // Declare edit text
     private Repository repository;
     Courses currentCourses;
     private RecyclerView recyclerView;
     private int numCourses;
     private int id;
+
 
     // Initializes the Courses homepage
     @Override
@@ -54,8 +56,13 @@ public class CourseList extends AppCompatActivity {
     // Tells what happens with the created menu
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
+            case R.id.home:
+                Intent homeIntent = new Intent(CourseList.this, MainActivity.class);
+                startActivity(homeIntent);
+                return true;
+
+            case R.id.refresh:
+                refreshCourseList();
                 return true;
         }
         return super.onOptionsItemSelected(item);

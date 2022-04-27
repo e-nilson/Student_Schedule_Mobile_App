@@ -116,7 +116,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="03/31/2022" ></EditText>
+                    android:hint="Anders Erikson" ></EditText>
             </LinearLayout>
 
             <LinearLayout
@@ -211,6 +211,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:onClick="enterAssessmentDetail"
         android:layout_marginBottom="10dp"
         android:layout_marginRight="10dp"
         app:layout_constraintBottom_toBottomOf="parent"

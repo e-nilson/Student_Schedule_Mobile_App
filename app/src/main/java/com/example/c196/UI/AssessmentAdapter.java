@@ -25,28 +25,28 @@ public class AssessmentAdapter extends RecyclerView.Adapter<AssessmentAdapter.As
         private final TextView assessmentTitleItemView;
         private final TextView assessmentStartItemView;
         private final TextView assessmentEndItemView;
-        //TODO private final TextView assessmentTypeItemView;
+        private final TextView assessmentTypeItemView;
 
+        // Constructor
         private AssessmentViewHolder (View itemView) {
             super (itemView);
             assessmentTitleItemView = itemView.findViewById(R.id.textViewAssessmentTitle);
             assessmentStartItemView = itemView.findViewById(R.id.textViewAssessmentStart);
             assessmentEndItemView = itemView.findViewById(R.id.textViewAssessmentEnd);
-            //TODO assessmentTypeItemView = itemView.findViewById(R.id.textViewAssessmentType);
+            assessmentTypeItemView = itemView.findViewById(R.id.textViewAssessmentType);
             itemView.setOnClickListener(new View.OnClickListener() {
-
                 // Sends it to the detailed assessment screen
                 @Override
                 public void onClick(View view) {
                    int position = getAdapterPosition();
                    final Assessments current = mAssessments.get(position);
-                    Intent intent = new Intent(context, AssessmentDetailList.class);
-                    //TODO intent.putExtra("assessmentID", current.getAssessmentID());
-                    intent.putExtra("assessmentTitle", current.getAssessmentTitle());
-                    intent.putExtra("assessmentStartDate", current.getAssessmentStartDate());
-                    intent.putExtra("assessmentEndDate", current.getAssessmentEndDate());
-                    intent.putExtra("assessmentType", current.getAssessmentType());
-                    context.startActivity(intent);
+                   Intent intent = new Intent(context, AssessmentDetailList.class);
+                   intent.putExtra("assessmentID", current.getAssessmentID());
+                   intent.putExtra("assessmentTitle", current.getAssessmentTitle());
+                   intent.putExtra("assessmentStartDate", current.getAssessmentStartDate());
+                   intent.putExtra("assessmentEndDate", current.getAssessmentEndDate());
+                   intent.putExtra("assessmentType", current.getAssessmentType());
+                   context.startActivity(intent);
                 }
             });
         }
@@ -68,12 +68,14 @@ public class AssessmentAdapter extends RecyclerView.Adapter<AssessmentAdapter.As
             holder.assessmentTitleItemView.setText(current.getAssessmentTitle());
             holder.assessmentStartItemView.setText(current.getAssessmentStartDate());
             holder.assessmentEndItemView.setText(current.getAssessmentEndDate());
+            holder.assessmentTypeItemView.setText(current.getAssessmentType());
         }
         else {
             //holder.assessmentIDItemView.setText("No Assessment ID");
             holder.assessmentTitleItemView.setText("No Assessment Title");
             holder.assessmentStartItemView.setText("No Assessment Start Date");
             holder.assessmentEndItemView.setText("No Assessment End Date");
+            holder.assessmentTypeItemView.setText("No Assessment Type");
         }
     }
 
@@ -85,7 +87,6 @@ public class AssessmentAdapter extends RecyclerView.Adapter<AssessmentAdapter.As
         }
         return 0;
     }
-
 
     public void setAssessments(List<Assessments> assessments) {
         mAssessments = assessments;
