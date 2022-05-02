@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:title="Delete"
-        android:id="@+id/deleteTerm"
+        android:title="Home"
+        android:id="@+id/home"
         android:orderInCategory="100"
         app:showAsAction="never" />
 
-    <item android:title="Refresh"
-        android:id="@+id/refreshTermDetail"
+    <item
+        android:title="Delete"
+        android:id="@+id/deleteTermDetail"
         android:orderInCategory="100"
-        app:showAsAction="never"/>
-
+        app:showAsAction="never" />
 </menu>

@@ -13,8 +13,10 @@ import android.widget.Toast;
 
 import com.example.c196.Database.Repository;
 import com.example.c196.Entity.Assessments;
+import com.example.c196.Entity.Terms;
 import com.example.c196.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AssessmentList extends AppCompatActivity {
@@ -44,14 +46,6 @@ public class AssessmentList extends AppCompatActivity {
         assessmentAdapter.setAssessments(allAssessments);
     }
 
-    /*
-    public void DetailedAssessmentView(View view) {
-        Intent intent = new Intent(AssessmentList.this, AssessmentDetailList.class);
-        startActivity(intent);
-    }
-
-     */
-
     // Creates a menu
     public boolean onCreateOptionsMenu(Menu menu) {
         // This adds items to the action bar if it's present
@@ -67,20 +61,33 @@ public class AssessmentList extends AppCompatActivity {
                 startActivity(homeIntent);
                 return true;
 
+            case R.id.refreshAssessment:
+                refreshAssessmentList();
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-/*
-    // Adds an assessment to the assessment list
+    // Refreshes the assessment list from the menu
+    private void refreshAssessmentList() {
+        recyclerView = findViewById(R.id.assessmentrecyclerview);
+        final AssessmentAdapter adapter = new AssessmentAdapter(this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        List<Assessments> filteredAssessments = new ArrayList<>();
+        List<Assessments> allAssessment = repository.getAllAssessments();
+
+        numAssessments = filteredAssessments.size();
+        adapter.setAssessments(allAssessment);
+    }
+
+
+    // Enters assessment detail list to add an assessment
     public void enterAssessmentDetail(View view) {
         Intent intent = new Intent(AssessmentList.this, AssessmentDetailList.class);
         if(currentAssessment != null) intent.putExtra("assessmentID", currentAssessment.getAssessmentID());
         intent.putExtra("assessmentID", assessmentID);
         startActivity(intent);
     }
-
- */
-
 
 }

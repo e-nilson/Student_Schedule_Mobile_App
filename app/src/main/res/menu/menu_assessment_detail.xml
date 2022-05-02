@@ -2,16 +2,27 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <item android:title="Home"
+        android:id="@+id/home"
+        android:orderInCategory="100"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/notifyAssessmentStart"
+        android:orderInCategory="100"
+        android:title="Assessment Start Notification"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/notifyAssessmentEnd"
+        android:orderInCategory="100"
+        android:title="Assesssment End Notification"
+        app:showAsAction="never"/>
 
     <item
         android:title="Delete"
-        android:id="@+id/deleteAssessment"
+        android:id="@+id/deleteAssessmentDetail"
         android:orderInCategory="100"
         app:showAsAction="never" />
-
-    <item android:title="Refresh"
-        android:id="@+id/refreshAssessmentDetail"
-        android:orderInCategory="100"
-        app:showAsAction="never"/>
 
 </menu>

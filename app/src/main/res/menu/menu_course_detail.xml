@@ -7,15 +7,27 @@
         android:orderInCategory="100"
         app:showAsAction="never"/>
 
-    <item
-        android:title="Delete"
-        android:id="@+id/deleteCourse"
-        android:orderInCategory="100"
-        app:showAsAction="never" />
-
-    <item android:title="Refresh"
-        android:id="@+id/refreshCourseDetail"
+    <item android:title="Share Note"
+        android:id="@+id/shareNotes"
         android:orderInCategory="100"
         app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/notifyCourseStart"
+        android:orderInCategory="100"
+        android:title="Course Start Notification"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/notifyCourseEnd"
+        android:orderInCategory="100"
+        android:title="Course End Notification"
+        app:showAsAction="never"/>
+
+    <item
+        android:title="Delete"
+        android:id="@+id/deleteCourseDetail"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
 
 </menu>

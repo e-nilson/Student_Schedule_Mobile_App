@@ -66,6 +66,7 @@ public class TermList extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // Refreshes the term list from the menu
     private void refreshTermList() {
         recyclerView = findViewById(R.id.termsrecyclerview);
         final TermAdapter adapter = new TermAdapter(this);

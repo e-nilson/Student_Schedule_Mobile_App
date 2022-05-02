@@ -22,7 +22,6 @@ import java.util.List;
 
 public class TermDetailList extends AppCompatActivity {
 
-    // Declare edit text
     public static int numCourses;
 
     private Repository repository;
@@ -107,7 +106,7 @@ public class TermDetailList extends AppCompatActivity {
                 startActivity(homeIntent);
                 return true;
 
-            case R.id.deleteTerm:
+            case R.id.deleteTermDetail:
                 if (numCourses == 0) {
                     repository.delete(currentTerm);
                     Toast.makeText(getApplicationContext(), "Term deleted successfully", Toast.LENGTH_LONG).show();
@@ -120,7 +119,6 @@ public class TermDetailList extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
     // Enters the detailed course page
     public void enterCourseDetail (View view) {
