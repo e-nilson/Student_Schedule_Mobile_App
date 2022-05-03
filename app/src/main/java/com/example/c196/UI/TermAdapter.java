@@ -85,12 +85,10 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.TermViewHolder
         else return 0;
     }
 
-
     public void setTerms(List<Terms> terms) {
         mTerms = terms;
         notifyDataSetChanged();
     }
-
 
     public TermAdapter(Context context){
         mInflater = LayoutInflater.from(context);

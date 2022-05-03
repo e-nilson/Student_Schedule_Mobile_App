@@ -49,7 +49,6 @@ public class CourseDetailList extends AppCompatActivity {
     List<Courses> allCourses;
     List<Terms> allTerms;
 
-    // Declare edit text
     EditText editTitle;
     EditText editStartDate;
     EditText editEndDate;
@@ -66,7 +65,6 @@ public class CourseDetailList extends AppCompatActivity {
     String dateFormat;
     SimpleDateFormat sdf;
 
-
     // Initializes the Course Details page
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +75,8 @@ public class CourseDetailList extends AppCompatActivity {
 
         dateFormat = "MM/dd/yyyy";
         sdf = new SimpleDateFormat(dateFormat, Locale.US);
+
+        // Start date onclick listener and datepicker
         editStartDate = findViewById(R.id.editCourseStartDate);
         editStartDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,6 +105,7 @@ public class CourseDetailList extends AppCompatActivity {
                 }
             };
 
+        // End date onclick listener and datepicker
         editEndDate = findViewById(R.id.editCourseEndDate);
         editEndDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,48 +134,47 @@ public class CourseDetailList extends AppCompatActivity {
             }
         };
 
-            // methods for entering and saving course from course details page back to courses page
-            courseID = getIntent().getIntExtra("courseID", -1);
-            repository = new Repository(getApplication());
-            allCourses = repository.getAllCourses();
-            for (Courses c : allCourses) {
-                if (c.getCourseID() == courseID) currentCourse = c;
-            }
-            editTitle = findViewById(R.id.editCourseTitle);
-            editStartDate = findViewById(R.id.editCourseStartDate);
-            editEndDate = findViewById(R.id.editCourseEndDate);
-            editStatus = findViewById(R.id.editCourseStatus);
-            editName = findViewById(R.id.editCourseInstructorName);
-            editPhone = findViewById(R.id.editCourseInstructorPhone);
-            editEmail = findViewById(R.id.editCourseInstructorEmail);
-            editNotes = findViewById(R.id.editCourseNotes);
-            //editTermID = findViewById(R.id.editTermID);
+        // methods for entering and saving course from course details page back to courses page
+        courseID = getIntent().getIntExtra("courseID", -1);
+        repository = new Repository(getApplication());
+        allCourses = repository.getAllCourses();
+        for (Courses c : allCourses) {
+            if (c.getCourseID() == courseID) currentCourse = c;
+        }
+        editTitle = findViewById(R.id.editCourseTitle);
+        editStartDate = findViewById(R.id.editCourseStartDate);
+        editEndDate = findViewById(R.id.editCourseEndDate);
+        editStatus = findViewById(R.id.editCourseStatus);
+        editName = findViewById(R.id.editCourseInstructorName);
+        editPhone = findViewById(R.id.editCourseInstructorPhone);
+        editEmail = findViewById(R.id.editCourseInstructorEmail);
+        editNotes = findViewById(R.id.editCourseNotes);
+        //editTermID = findViewById(R.id.editTermID);
 
-            if (currentCourse != null) {
-                editTitle.setText(currentCourse.getCourseTitle());
-                editStartDate.setText(currentCourse.getCourseStartDate());
-                editEndDate.setText(currentCourse.getCourseEndDate());
-                editStatus.setText(currentCourse.getCourseStatus());
-                editName.setText(currentCourse.getInstructorName());
-                editPhone.setText(currentCourse.getInstructorPhone());
-                editEmail.setText(currentCourse.getInstructorEmail());
-                editNotes.setText(currentCourse.getCourseNotes());
-                //editTermID.setText(currentCourse.getTermID);
-            }
-
-            // Adds the assessment recycler view to the course detail page based on the term ID
-            RecyclerView recyclerView = findViewById(R.id.assessmentrecyclerview);
-            final AssessmentAdapter assessmentAdapter = new AssessmentAdapter(this);
-            recyclerView.setAdapter(assessmentAdapter);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            List<Assessments> filteredAssessments = new ArrayList<>();
-            for (Assessments a : repository.getAllAssessments()) {
-                if (a.getCourseID() == courseID) filteredAssessments.add(a);
-            }
-            numAssessments = filteredAssessments.size();
-            assessmentAdapter.setAssessments(filteredAssessments);
+        if (currentCourse != null) {
+            editTitle.setText(currentCourse.getCourseTitle());
+            editStartDate.setText(currentCourse.getCourseStartDate());
+            editEndDate.setText(currentCourse.getCourseEndDate());
+            editStatus.setText(currentCourse.getCourseStatus());
+            editName.setText(currentCourse.getInstructorName());
+            editPhone.setText(currentCourse.getInstructorPhone());
+            editEmail.setText(currentCourse.getInstructorEmail());
+            editNotes.setText(currentCourse.getCourseNotes());
+            //editTermID.setText(currentCourse.getTermID);
         }
 
+        // Adds the assessment recycler view to the course detail page based on the term ID
+        RecyclerView recyclerView = findViewById(R.id.assessmentrecyclerview);
+        final AssessmentAdapter assessmentAdapter = new AssessmentAdapter(this);
+        recyclerView.setAdapter(assessmentAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        List<Assessments> filteredAssessments = new ArrayList<>();
+        for (Assessments a : repository.getAllAssessments()) {
+            if (a.getCourseID() == courseID) filteredAssessments.add(a);
+        }
+        numAssessments = filteredAssessments.size();
+        assessmentAdapter.setAssessments(filteredAssessments);
+    }
 
     private void updateLabelStart() {
         editStartDate.setText(sdf.format(myCalendarStart.getTime()));
@@ -183,7 +183,6 @@ public class CourseDetailList extends AppCompatActivity {
     private void updateLabelEnd() {
         editEndDate.setText(sdf.format(myCalendarStart.getTime()));
     }
-
 
     // Saves new courses and/or assessment details
     public void saveCourseDetails(View view) {
@@ -208,7 +207,6 @@ public class CourseDetailList extends AppCompatActivity {
         Intent intent = new Intent(CourseDetailList.this, CourseList.class);
         startActivity(intent);
     }
-
 
     // Inflates the menu and adds items to the action bar if present
     public boolean onCreateOptionsMenu(Menu menu) {

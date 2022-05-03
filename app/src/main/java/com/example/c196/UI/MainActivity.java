@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         repository.insert(termsEntity);
         Courses coursesEntity = new Courses(1, "C196", "01/01/2022","03/31/2022","In-progress","Carolyn","123-456-7890","c@wgu.edu", "test notes", 1);
         repository.insert(coursesEntity);
-        Assessments assessmentsEntity = new Assessments(1,"Performance Assessment", "Mobile App Development", "01/01/2022",  "03/31/2022",1);
+        Assessments assessmentsEntity = new Assessments(1,"Performance Assessment", "Mobile App Dev", "01/01/2022",  "03/31/2022",1);
         repository.insert(assessmentsEntity);
     }
 

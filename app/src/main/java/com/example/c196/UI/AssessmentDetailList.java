@@ -42,7 +42,6 @@ public class AssessmentDetailList extends AppCompatActivity {
     List<Assessments> allAssessments;
     List<Courses> allCourses;
 
-    // Declare edit text
     EditText editTitle;
     EditText editStartDate;
     EditText editEndDate;
@@ -54,7 +53,6 @@ public class AssessmentDetailList extends AppCompatActivity {
 
     String dateFormat;
     SimpleDateFormat sdf;
-
 
     // Initializes the Assessment Details homepage
     @Override
