@@ -7,9 +7,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.c196.Database.Repository;
 import com.example.c196.Entity.Courses;
@@ -26,6 +29,12 @@ public class CourseList extends AppCompatActivity {
     private RecyclerView recyclerView;
     private int numCourses;
     private int id;
+
+    // variable for our adapter
+    // class and array list
+    private List<Courses> mCourses;
+    private RecyclerView courserecyclerview;
+    private CourseAdapter adapter;
 
 
     // Initializes the Courses homepage
@@ -46,12 +55,15 @@ public class CourseList extends AppCompatActivity {
         courseAdapter.setCourses(allCourses);
     }
 
+
     // Creates a menu
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // This adds items to the action bar if it's present
         getMenuInflater().inflate(R.menu.menu_course, menu);
         return true;
     }
+
 
     // Tells what happens with the created menu
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -68,6 +80,7 @@ public class CourseList extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // Refreshes course list
     private void refreshCourseList() {
         recyclerView = findViewById(R.id.courserecyclerview);
         final CourseAdapter adapter = new CourseAdapter(this);

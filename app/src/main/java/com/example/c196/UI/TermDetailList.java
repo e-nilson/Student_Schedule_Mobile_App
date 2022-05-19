@@ -49,7 +49,7 @@ public class TermDetailList extends AppCompatActivity {
         termID = getIntent().getIntExtra("termID", -1);
         repository = new Repository(getApplication());
         allTerms = repository.getAllTerms();
-        for (Terms t:allTerms){
+        for (Terms t : allTerms){
             if (t.getTermID()== termID) currentTerm = t;
         }
         editTitle = findViewById(R.id.editTermTitle);
@@ -67,7 +67,7 @@ public class TermDetailList extends AppCompatActivity {
         recyclerView.setAdapter(courseAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         List<Courses> filteredCourses = new ArrayList<>();
-        for(Courses c: repository.getAllCourses()){
+        for(Courses c : repository.getAllCourses()){
             if(c.getTermID() == termID)filteredCourses.add(c);
         }
         numCourses=filteredCourses.size();

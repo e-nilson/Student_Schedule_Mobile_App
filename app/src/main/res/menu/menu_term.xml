@@ -11,4 +11,5 @@
         android:id="@+id/refreshTerm"
         android:orderInCategory="100"
         app:showAsAction="never"/>
+
 </menu>
