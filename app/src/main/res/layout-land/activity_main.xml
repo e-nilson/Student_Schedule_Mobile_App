@@ -4,17 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#206f91"
     tools:context=".UI.MainActivity">
 
     <TextView
         android:id="@+id/homeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome Night Owl!"
+        android:text="Welcome!"
         android:textColor="@color/purple_500"
         android:textStyle="bold"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:layout_marginBottom="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -25,9 +24,9 @@
     <ImageView
         android:id="@+id/homeImage"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginBottom="28dp"
-        android:layout_marginTop="28dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="80dp"
         android:src="@drawable/ic_baseline_school_24"
         app:layout_constraintBottom_toTopOf="@+id/terms"
         app:layout_constraintLeft_toLeftOf="parent"

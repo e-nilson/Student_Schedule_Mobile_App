@@ -10,6 +10,7 @@ import com.example.c196.Database.Repository;
 import com.example.c196.Entity.Assessments;
 import com.example.c196.Entity.Courses;
 import com.example.c196.Entity.Terms;
+import com.example.c196.Entity.Users;
 import com.example.c196.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,10 +29,14 @@ public class MainActivity extends AppCompatActivity {
         repository.insert(termsEntity);
         Terms termsEntity2 = new Terms(2,"Fall Term", "09/01/2022","12/31/2022" );
         repository.insert(termsEntity2);
-        Courses coursesEntity = new Courses(1, "C196", "01/01/2022","03/31/2022","In-progress","Carolyn","123-456-7890","c@wgu.edu", "test notes", 1);
+        Courses coursesEntity = new Courses(1, "Application Development", "03/01/2022","06/30/2022","In-progress","Carolyn","123-456-7890","c@wgu.edu", "test notes", 1);
         repository.insert(coursesEntity);
-        Assessments assessmentsEntity = new Assessments(1,"Performance Assessment", "Mobile App Dev", "01/01/2022",  "03/31/2022",1);
+        Courses coursesEntity2 = new Courses(2, "Software Engineering", "09/01/2022","12/31/2022","In-progress","Ben","123-456-7890","b@wgu.edu", "test notes", 2);
+        repository.insert(coursesEntity2);
+        Assessments assessmentsEntity = new Assessments(1,"Performance Assessment", "Mobile App", "03/01/2022",  "06/30/2022",1);
         repository.insert(assessmentsEntity);
+        Assessments assessmentsEntity2 = new Assessments(2,"Objective Assessment", "Desktop App", "09/01/2022",  "12/31/2022",2);
+        repository.insert(assessmentsEntity2);
     }
 
     // navigates to the terms homepage

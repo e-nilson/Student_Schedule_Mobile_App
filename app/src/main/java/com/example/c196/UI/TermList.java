@@ -54,11 +54,8 @@ public class TermList extends AppCompatActivity {
     // Creates a menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // This adds items to the action bar if it's present
+        // Adds items to the action bar if it's present
         getMenuInflater().inflate(R.menu.menu_search, menu);
-
-        //MenuInflater inflater = getMenuInflater();
-        //inflater.inflate(R.menu.menu_search, menu);
 
         MenuItem searchItem = menu.findItem(R.id.search);
         SearchView searchView = (SearchView) searchItem.getActionView();
@@ -98,6 +95,13 @@ public class TermList extends AppCompatActivity {
             adapter.filterList(filteredList);
     }
 
+    // Enters the term detail page
+    public void enterTermDetail(View view) {
+        Intent intent = new Intent(TermList.this, TermDetailList.class);
+        if(currentTerm != null) intent.putExtra("termID", currentTerm.getTermID());
+        startActivity(intent);
+    }
+
     // Tells what happens with the created menu
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -128,10 +132,4 @@ public class TermList extends AppCompatActivity {
     }
 
 
-    // Enters the term detail page
-    public void enterTermDetail(View view) {
-        Intent intent = new Intent(TermList.this, TermDetailList.class);
-        if(currentTerm != null) intent.putExtra("termID", currentTerm.getTermID());
-        startActivity(intent);
-    }
 }
