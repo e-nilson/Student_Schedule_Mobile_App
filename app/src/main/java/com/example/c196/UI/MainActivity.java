@@ -13,9 +13,15 @@ import com.example.c196.Entity.Terms;
 import com.example.c196.Entity.Users;
 import com.example.c196.R;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
 
     public static int numAlert;
+
+    Date currentDateTime = Calendar.getInstance().getTime();
+    String termCreateDate = currentDateTime.toString();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +31,11 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Repository repository = new Repository(getApplication());
-        Terms termsEntity = new Terms(1,"Spring Term", "03/01/2022","06/30/2022" );
+        Terms termsEntity = new Terms(1,"Spring Term", "03/01/2022","06/30/2022", termCreateDate);
         repository.insert(termsEntity);
-        Terms termsEntity2 = new Terms(2,"Fall Term", "09/01/2022","12/31/2022" );
+        Terms termsEntity2 = new Terms(2,"Fall Term", "09/01/2022","12/31/2022", termCreateDate );
         repository.insert(termsEntity2);
-        Courses coursesEntity = new Courses(1, "Application Development", "03/01/2022","06/30/2022","In-progress","Carolyn","123-456-7890","c@wgu.edu", "test notes", 1);
+        Courses coursesEntity = new Courses(1, "Mobile App Development", "03/01/2022","06/30/2022","In-progress","Carolyn","123-456-7890","c@wgu.edu", "test notes", 1);
         repository.insert(coursesEntity);
         Courses coursesEntity2 = new Courses(2, "Software Engineering", "09/01/2022","12/31/2022","In-progress","Ben","123-456-7890","b@wgu.edu", "test notes", 2);
         repository.insert(coursesEntity2);

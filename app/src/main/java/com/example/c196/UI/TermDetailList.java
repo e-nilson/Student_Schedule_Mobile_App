@@ -28,7 +28,8 @@ public class TermDetailList extends AppCompatActivity {
     private int termID;
     private Courses currentCourses;
     private int numTerms;
-    
+    private String termCreateDate;
+
     Terms currentTerm;
     RecyclerView recyclerView;
     List<Terms> allTerms;
@@ -47,6 +48,7 @@ public class TermDetailList extends AppCompatActivity {
 
         // methods for entering and saving term from terms details page back to terms page
         termID = getIntent().getIntExtra("termID", -1);
+        //termCreateDate = getIntent().getStringExtra("termCreateDate");
         repository = new Repository(getApplication());
         allTerms = repository.getAllTerms();
         for (Terms t : allTerms){
@@ -81,10 +83,10 @@ public class TermDetailList extends AppCompatActivity {
         Terms terms;
         if (termID == -1) {
             int newTermID = repository.getAllTerms().get(repository.getAllTerms().size() - 1).getTermID() + 1;
-            terms = new Terms(newTermID, editTitle.getText().toString(), editStartDate.getText().toString(), editEndDate.getText().toString());
+            terms = new Terms(newTermID, editTitle.getText().toString(), editStartDate.getText().toString(), editEndDate.getText().toString(), termCreateDate);
             repository.insert(terms);
         } else {
-            terms = new Terms(termID, editTitle.getText().toString(), editStartDate.getText().toString(), editEndDate.getText().toString());
+            terms = new Terms(termID, editTitle.getText().toString(), editStartDate.getText().toString(), editEndDate.getText().toString(), termCreateDate);
             repository.update(terms);
         }
         Intent intent = new Intent(TermDetailList.this, TermList.class);

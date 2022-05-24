@@ -16,7 +16,7 @@ import com.example.c196.Entity.Assessments;
 import com.example.c196.Entity.Users;
 
 // Database with terms, courses, and assessments tables
-@Database(entities = {Terms.class, Courses.class, Assessments.class, Users.class}, version = 2, exportSchema = false)
+@Database(entities = {Terms.class, Courses.class, Assessments.class, Users.class}, version = 3, exportSchema = false)
 public abstract class StudentScheduleBuilder extends RoomDatabase {
     public abstract TermsDAO termsDAO();
     public abstract CoursesDAO coursesDAO();

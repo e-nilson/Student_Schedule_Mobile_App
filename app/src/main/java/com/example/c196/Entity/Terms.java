@@ -11,13 +11,15 @@ public class Terms {
     private String termTitle;
     private String termStartDate;
     private String termEndDate;
+    private String termCreateDate;
 
     // Constructors for terms
-    public Terms(int termID, String termTitle, String termStartDate, String termEndDate) {
+    public Terms(int termID, String termTitle, String termStartDate, String termEndDate, String termCreateDate) {
         this.termID = termID;
         this.termTitle = termTitle;
         this.termStartDate = termStartDate;
         this.termEndDate = termEndDate;
+        this.termCreateDate = termCreateDate;
     }
 
     // Setter and getters for terms
@@ -51,6 +53,14 @@ public class Terms {
 
     public void setTermEndDate(String termEndDate) {
         this.termEndDate = termEndDate;
+    }
+
+    public String getTermCreateDate() {
+        return termCreateDate;
+    }
+
+    public void setTermCreateDate(String createDate) {
+        this.termCreateDate = termCreateDate;
     }
 
     @Override

@@ -18,8 +18,10 @@
         <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.2879188712522046" />
         <entry key="app/src/main/res/layout-land/activity_term_detail_list.xml" value="0.2879188712522046" />
         <entry key="app/src/main/res/layout-land/activity_term_list.xml" value="0.2879188712522046" />
+        <entry key="app/src/main/res/layout-land/activity_term_report.xml" value="0.16181657848324515" />
         <entry key="app/src/main/res/layout-land/assessment_list.xml" value="0.2879188712522046" />
         <entry key="app/src/main/res/layout-land/course_list.xml" value="0.2879188712522046" />
+        <entry key="app/src/main/res/layout-land/report_list.xml" value="0.16181657848324515" />
         <entry key="app/src/main/res/layout-land/term_list.xml" value="0.2879188712522046" />
         <entry key="app/src/main/res/layout/activity_assessment_detail_list.xml" value="0.21" />
         <entry key="app/src/main/res/layout/activity_assessment_list.xml" value="0.33" />
@@ -40,16 +42,18 @@
         <entry key="app/src/main/res/layout/activity_term_details.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_term_details_list.xml" value="0.34010416666666665" />
         <entry key="app/src/main/res/layout/activity_term_list.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_term_report.xml" value="0.34010416666666665" />
         <entry key="app/src/main/res/layout/activity_terms_details_list.xml" value="0.24791666666666667" />
         <entry key="app/src/main/res/layout/activity_terms_list.xml" value="0.34010416666666665" />
         <entry key="app/src/main/res/layout/assessment_list.xml" value="0.33" />
         <entry key="app/src/main/res/layout/course_detail_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/course_list.xml" value="0.18" />
         <entry key="app/src/main/res/layout/courses_list.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/report_list.xml" value="0.34010416666666665" />
         <entry key="app/src/main/res/layout/term_detail_list.xml" value="0.22" />
         <entry key="app/src/main/res/layout/term_details.xml" value="0.34010416666666665" />
         <entry key="app/src/main/res/layout/term_details_list.xml" value="0.12552083333333333" />
-        <entry key="app/src/main/res/layout/term_list.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/term_list.xml" value="0.25" />
         <entry key="app/src/main/res/layout/term_list_item.xml" value="0.33" />
         <entry key="app/src/main/res/layout/terms_details_list.xml" value="0.24791666666666667" />
         <entry key="app/src/main/res/layout/terms_list.xml" value="0.33" />

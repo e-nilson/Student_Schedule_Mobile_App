@@ -131,5 +131,8 @@ public class TermList extends AppCompatActivity {
         adapter.setTerms(allTerms);
     }
 
-
+    public void getTermReport(View view) {
+        Intent intent = new Intent(TermList.this, TermReport.class);
+        startActivity(intent);
+    }
 }
