@@ -18,6 +18,8 @@ import com.example.c196.Entity.Terms;
 import com.example.c196.R;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class TermDetailList extends AppCompatActivity {
@@ -80,6 +82,9 @@ public class TermDetailList extends AppCompatActivity {
 
     // Saves new term and/or course details
     public void saveTermDetails(View view) {
+        Date currentDateTime = Calendar.getInstance().getTime();
+        String termCreateDate = currentDateTime.toString();
+
         Terms terms;
         if (termID == -1) {
             int newTermID = repository.getAllTerms().get(repository.getAllTerms().size() - 1).getTermID() + 1;

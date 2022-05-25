@@ -39,7 +39,7 @@
             android:label="Term Details"
             android:parentActivityName=".UI.TermList" />
         <activity
-            android:name=".UI.TermReport"
+            android:name=".UI.TermReportList"
             android:exported="false"
             android:label="Terms Report"
             android:parentActivityName=".UI.TermList" />

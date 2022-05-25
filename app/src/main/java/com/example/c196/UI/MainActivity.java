@@ -20,16 +20,18 @@ public class MainActivity extends AppCompatActivity {
 
     public static int numAlert;
 
-    Date currentDateTime = Calendar.getInstance().getTime();
-    String termCreateDate = currentDateTime.toString();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        Date currentDateTime = Calendar.getInstance().getTime();
+        String termCreateDate = currentDateTime.toString();
+
+        // Adds sample data
         Repository repository = new Repository(getApplication());
         Terms termsEntity = new Terms(1,"Spring Term", "03/01/2022","06/30/2022", termCreateDate);
         repository.insert(termsEntity);

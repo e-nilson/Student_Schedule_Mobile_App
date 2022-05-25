@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
 
         // Checks if text fields are empty
         if (username.isEmpty() || password.isEmpty()) {
-            Toast.makeText(LoginActivity.this, "Fill out required fields", Toast.LENGTH_LONG).show();
+            Toast.makeText(LoginActivity.this, "Fill out required fields", Toast.LENGTH_SHORT).show();
         } else {
             // Compare user entered text fields to users_table stored username and passwords
             Repository user_repository = new Repository(getApplication());
@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(LoginActivity.this, "Username and/or password are incorrect", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Username and/or password are incorrect", Toast.LENGTH_SHORT).show();
                 }
             }
         }
