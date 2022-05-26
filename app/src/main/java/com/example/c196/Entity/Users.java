@@ -44,4 +44,22 @@ public class Users {
                 ", password=" + password +
                 '}';
     }
+
+    public boolean validUserInput(int userID, String username, String password) {
+        int MAX_LENGTH = 20;
+
+        if (username.isEmpty() || password.isEmpty()) {
+            return false;
+        }
+        /*
+        if (username.length() > MAX_LENGTH) {
+            return false;
+        }
+        if (password.length() > MAX_LENGTH) {
+            return false;
+        }
+
+         */
+        return true;
+    }
 }
